@@ -63,14 +63,14 @@ cold-email-generator/
 git clone https://github.com/your-username/cold-email-generator.git
 cd cold-email-generator 
 
-2. Install Dependencies
+2. **Install Dependencies**
 
 bash
 Copy
 Edit
 pip install -r requirements.txt
 
-3. Add your API Key
+3. **Add your API Key**
 Create a .env file in the root directory:
 
 env
@@ -78,25 +78,34 @@ Copy
 Edit
 GROQ_API_KEY=your_chatgroq_api_key_here
 
-4. Add Portfolio Data
+4. **Add Portfolio Data**
 Add your projects to app/resource/my_portfolio.csv with columns:
 
 Techstack: Keywords/skills (e.g., Python, NLP, LLM, etc.)
 
 Links: Corresponding portfolio/project links
 
-🏗️ How It Works
-Input a job/career page URL.
 
-WebBaseLoader scrapes the HTML content.
+## 🏗️ How It Works
 
-The cleaned text is sent to an LLM (LLaMA 3.3-70B via ChatGroq).
+1. 🔗 **Input a job/career page URL**  
+   The user provides a link to a job listing or career page.
 
-LangChain prompts extract job roles, experience, and skills in structured JSON.
+2. 🌐 **Web Scraping with LangChain**  
+   `WebBaseLoader` scrapes and loads the HTML content from the page.
 
-Skills are queried against ChromaDB to fetch relevant project links.
+3. 🧹 **Text Cleaning & Preprocessing**  
+   The raw text is cleaned to remove HTML tags and unnecessary noise.
 
-A final cold email is generated using another LangChain prompt.
+4. 🧠 **Job Data Extraction via LLM**  
+   The cleaned text is passed to **LLaMA 3.3-70B via ChatGroq** using a LangChain prompt to extract structured job information (role, skills, experience).
 
-The email appears in the UI as a copy-ready markdown block.
+5. 📚 **Skill Matching with ChromaDB**  
+   The extracted skill keywords are searched semantically against a vector store of portfolio projects using **ChromaDB**.
+
+6. ✉️ **Cold Email Generation**  
+   Another prompt combines the job details and matched projects to generate a personalized cold email.
+
+7. 🖥️ **Interactive Output**  
+   The generated email is displayed in the **Streamlit UI** as a clean, copyable Markdown block.
 

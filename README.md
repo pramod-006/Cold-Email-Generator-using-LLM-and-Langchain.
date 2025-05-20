@@ -48,8 +48,6 @@ cold-email-generator/
 
 │ └── my_portfolio.csv # Portfolio dataset with Techstack & Links
 
-│
-
 ├── main.py # Streamlit entry point
 
 ├── chain.py # LangChain logic for job extraction & email generation

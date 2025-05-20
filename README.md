@@ -40,6 +40,7 @@ A fully automated AI-powered cold email generator that scrapes job postings from
 ## 📁 Folder Structure
 
 cold-email-generator/
+
 │
 ├── app/
 │ └── resource/

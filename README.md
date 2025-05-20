@@ -76,6 +76,8 @@ cold-email-generator/
 ---
 
 ##🏗️ How It Works
+
+
 🔗 Input a job/career page URL
 The user provides a link to a job listing or career page.
 

@@ -43,15 +43,25 @@ cold-email-generator/
 
 │
 ├── app/
+
 │ └── resource/
+
 │ └── my_portfolio.csv # Portfolio dataset with Techstack & Links
+
 │
+
 ├── main.py # Streamlit entry point
+
 ├── chain.py # LangChain logic for job extraction & email generation
+
 ├── portfolio.py # ChromaDB vector store for portfolio matching
+
 ├── utils.py # Text cleaning utility
+
 ├── .env # Environment variables (GROQ_API_KEY)
+
 ├── requirements.txt # Python dependencies
+
 └── README.md # Project documentation
 
 

@@ -59,53 +59,42 @@ cold-email-generator/
 ## 🔧 Setup Instructions
 
 1. **Clone the Repository**
-```bash
-git clone https://github.com/your-username/cold-email-generator.git
-cd cold-email-generator 
-
+   ```bash
+   git clone https://github.com/your-username/cold-email-generator.git
+   cd cold-email-generator
 2. **Install Dependencies**
+    pip install -r requirements.txt
+3. **Add your API Key**   
+    ROQ_API_KEY=your_chatgroq_api_key_here
+4. Add Portfolio Data
+      Add Portfolio Data
+      Add your projects to app/resource/my_portfolio.csv with the following columns:
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
+      Techstack: Keywords/skills (e.g., Python, NLP, LLM, etc.)
 
-3. **Add your API Key**
-Create a .env file in the root directory:
+      Links: Corresponding portfolio/project links
+---
 
-env
-Copy
-Edit
-GROQ_API_KEY=your_chatgroq_api_key_here
+##🏗️ How It Works
+🔗 Input a job/career page URL
+The user provides a link to a job listing or career page.
 
-4. **Add Portfolio Data**
-Add your projects to app/resource/my_portfolio.csv with columns:
+🌐 Web Scraping with LangChain
+WebBaseLoader scrapes and loads the HTML content from the page.
 
-Techstack: Keywords/skills (e.g., Python, NLP, LLM, etc.)
+🧹 Text Cleaning & Preprocessing
+The raw text is cleaned to remove HTML tags and unnecessary noise.
 
-Links: Corresponding portfolio/project links
+🧠 Job Data Extraction via LLM
+The cleaned text is passed to LLaMA 3.3-70B via ChatGroq using a LangChain prompt to extract structured job information (role, skills, experience).
 
+📚 Skill Matching with ChromaDB
+The extracted skill keywords are searched semantically against a vector store of portfolio projects using ChromaDB.
 
-## 🏗️ How It Works
+✉️ Cold Email Generation
+Another prompt combines the job details and matched projects to generate a personalized cold email.
 
-1. 🔗 **Input a job/career page URL**  
-   The user provides a link to a job listing or career page.
+🖥️ Interactive Output
+The generated email is displayed in the Streamlit UI as a clean, copyable Markdown block.
 
-2. 🌐 **Web Scraping with LangChain**  
-   `WebBaseLoader` scrapes and loads the HTML content from the page.
-
-3. 🧹 **Text Cleaning & Preprocessing**  
-   The raw text is cleaned to remove HTML tags and unnecessary noise.
-
-4. 🧠 **Job Data Extraction via LLM**  
-   The cleaned text is passed to **LLaMA 3.3-70B via ChatGroq** using a LangChain prompt to extract structured job information (role, skills, experience).
-
-5. 📚 **Skill Matching with ChromaDB**  
-   The extracted skill keywords are searched semantically against a vector store of portfolio projects using **ChromaDB**.
-
-6. ✉️ **Cold Email Generation**  
-   Another prompt combines the job details and matched projects to generate a personalized cold email.
-
-7. 🖥️ **Interactive Output**  
-   The generated email is displayed in the **Streamlit UI** as a clean, copyable Markdown block.
 

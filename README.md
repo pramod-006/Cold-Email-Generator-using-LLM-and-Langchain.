@@ -75,7 +75,7 @@ cold-email-generator/
       Links: Corresponding portfolio/project links
 ---
 
-##🏗️ How It Works
+🏗️ How It Works
 
 
 🔗 Input a job/career page URL
